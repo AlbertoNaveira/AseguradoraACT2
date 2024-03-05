@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aseguradora</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var xmlDoc = this.responseXML;
+                var xslFile = "xsl/polizas.xsl";
+                var xslhttp = new XMLHttpRequest();
+                xslhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var xslDoc = this.responseXML;
+                        var xsltProcessor = new XSLTProcessor();
+                        xsltProcessor.importStylesheet(xslDoc);
+                        var resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
+                        document.getElementById("tablaPolizas").appendChild(resultDocument);
+                    }
+                };
+                xslhttp.open("GET", xslFile, true);
+                xslhttp.send();
+            }
+        };
+        xhttp.open("GET", "seguro.xml", true);
+        xhttp.send();
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 2 - Lenguaje de Marcas - Aseguradora</h1>
+    <table id="tablaPolizas"></table>                                                                                   
+</body>
+</html>

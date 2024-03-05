@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; 
+  
+  }
+  body {
+    font-family: "Times New Roman", sans-serif; 
+  }
+  
+  th, td {
+    vertical-align: middle;
+    padding: 16px;
+    height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd00;
+    border-color: #cccccc00; 
+    width: 30%; 
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+
+  .tipo-seguro {
+    font-weight: bold;
+  }
+  table tr:hover {
+    background-color: #ff7300;
+  }
+  h2 {
+    color: #333;
+    font-size: 60px;
+    text-transform: uppercase;
+  }
